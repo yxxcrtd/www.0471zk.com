@@ -1,0 +1,29 @@
+<div id="itemContainer2">
+			<li>
+				<div class="product_block_small_1">
+					<div class="product_block_small_picture_1">
+						<a href="69.html" target="_blank">
+							<img src="./upload/category_20120801224221937.jpg" width="116" height="82" title="好沙健身100元体验卡" />
+						</a>
+					</div>
+					<div class="product_block_small_name">
+						<a href="69.html" title="好沙健身100元体验卡" target="_blank">
+								好沙健身100元体...
+						</a>
+					</div>
+				</div>
+			</li>
+</div>
+<div class="holder2"></div>
+<script type="text/javascript" language="javascript">
+	// 在分页之前将content1设为可见，否则无法生成分页。因为分页插件不支持在不可见的区域生成分页
+	$("div.content1").css("display", "block");
+	
+	$("div.holder2").jPages({
+		containerID : "itemContainer2",
+		perPage		: 10
+	});
+
+	// 在分页之后将content1设为隐藏，否则在第一个区域将显示所有的分页
+	$("div.content1").css("display", "none");
+</script>

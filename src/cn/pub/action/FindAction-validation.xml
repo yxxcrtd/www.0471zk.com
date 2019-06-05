@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<!-- 用户名 -->
+	<field name="user.username">
+		<field-validator type="requiredstring" short-circuit="true">
+			<param name="trim">true</param>
+			<message key="system.login.username.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">5</param>
+			<param name="maxLength">20</param>
+			<message key="system.register.username.length" />
+		</field-validator>
+	</field>
+	
+	<!-- E-Mail -->
+	<field name="user.email">
+		<field-validator type="requiredstring" short-circuit="true">
+			<param name="trim">true</param>
+			<message key="system.register.email.required" />
+		</field-validator>
+		<field-validator type="email">
+			<message key="system.register.email.error" />
+		</field-validator>
+	</field>
+	
+	<!-- 验证码 -->
+	<field name="user.verifyCode">
+		<field-validator type="requiredstring" short-circuit="true">
+			<param name="trim">true</param>
+			<message key="system.login.verifyCode.required" />
+		</field-validator>
+	</field>
+</validators>

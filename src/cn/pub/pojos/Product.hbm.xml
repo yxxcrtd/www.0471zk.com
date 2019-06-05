@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.pub.pojos.Product" table="&quot;T_Product&quot;">
+		<id name="productId" type="int">
+			<column name="&quot;ProductId&quot;" />
+			<generator class="sequence">
+				<param name="sequence">&quot;T_Product_ProductId_seq&quot;</param>
+			</generator>
+		</id>
+		<property name="category" type="java.lang.Integer">
+			<column name="&quot;ProductCategory&quot;" not-null="true" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="&quot;ProductName&quot;" length="50" not-null="true" />
+		</property>
+		<property name="price" type="java.lang.Double">
+			<column name="&quot;ProductPrice&quot;" precision="9" scale="2" />
+		</property>
+		<property name="offPrice" type="java.lang.Double">
+			<column name="&quot;ProductOffPrice&quot;" precision="9" scale="2" />
+		</property>
+		<property name="discount" type="java.lang.Double">
+			<column name="&quot;ProductDiscount&quot;" precision="2" scale="1" />
+		</property>
+		<property name="economize" type="java.lang.Double">
+			<column name="&quot;ProductEconomize&quot;" precision="9" scale="2" />
+		</property>
+		<property name="memberPrice" type="java.lang.Double">
+			<column name="&quot;ProductMemberPrice&quot;" precision="9" scale="2" />
+		</property>
+		<property name="endTime" type="java.util.Date">
+			<column name="&quot;ProductEndTime&quot;" length="23" />
+		</property>
+		<property name="picture" type="java.lang.String">
+			<column name="&quot;ProductPicture&quot;" length="22" not-null="true" />
+		</property>
+		<property name="voucher" type="java.lang.String">
+			<column name="&quot;ProductVoucher&quot;" length="22" not-null="true" />
+		</property>
+		<property name="instruction" type="java.lang.String">
+			<column name="&quot;ProductInstruction&quot;" length="165" />
+		</property>
+		<property name="introduce" type="java.lang.String">
+			<column name="&quot;ProductIntroduce&quot;" length="300" />
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="&quot;ProductAddress&quot;" length="50" />
+		</property>
+		<property name="hit" type="int">
+			<column name="&quot;ProductHit&quot;" not-null="true" />
+		</property>
+		<property name="status" type="int">
+			<column name="&quot;ProductStatus&quot;" not-null="true" />
+		</property>
+		<property name="type" type="java.lang.String">
+			<column name="&quot;ProductType&quot;" length="15" not-null="true" />
+		</property>
+		<property name="counts" type="int">
+			<column name="&quot;ProductCount&quot;" not-null="true" />
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="&quot;ProductCreateDate&quot;" length="23" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

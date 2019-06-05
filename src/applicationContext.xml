@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 定义 Hibernate 的 SessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" autowire="autodetect">
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+				<prop key="hibernate.connection.provider_class">com.jolbox.bonecp.provider.BoneCPConnectionProvider</prop>
+				<prop key="hibernate.connection.driver_class">org.postgresql.Driver</prop>
+				<prop key="hibernate.connection.url">jdbc:postgresql://localhost:5432/Pub</prop>
+				<prop key="hibernate.connection.username">Pub</prop>
+				<prop key="hibernate.connection.password">Pub</prop>
+				<prop key="hibernate.bytecode.use_reflection_optimizer">true</prop>
+				<prop key="hibernate.connection.autocommit">true</prop>
+				<prop key="bonecp.idleMaxAge">60</prop><!-- 连接池中未使用的链接最大存活时间，单位是分，默认值：60，如果要永远存活设置为：0 -->
+				<prop key="bonecp.idleConnectionTestPeriod">240</prop><!-- 检查数据库连接池中空闲连接的间隔时间，单位是分，默认值：240，如果要取消则设置为：0 -->
+				<prop key="bonecp.partitionCount">2</prop><!-- 分区数 ，默认值：2，最小：1，推荐3-4，视应用而定 -->
+				<prop key="bonecp.acquireIncrement">3</prop><!-- 当连接池中的连接耗尽的时候，一次同时向数据库请求的连接数，默认值：3 -->
+				<prop key="bonecp.maxConnectionsPerPartition">20</prop><!-- 每个分区最大的连接数 -->
+	 			<prop key="bonecp.minConnectionsPerPartition">10</prop><!-- 每个分区最小的连接数 -->
+	 			<prop key="bonecp.preparedStatementCacheSize">0</prop><!-- 缓存prepared statements的大小，默认值：0 -->
+	 			<prop key="bonecp.statementsCachedPerConnection">30</prop>
+	 			<prop key="bonecp.releaseHelperThreads">3</prop><!-- 每个分区释放链接助理进程的数量，默认值：3，除非你的一个数据库连接的时间内做了很多工作，不然过多的助理进程会影响你的性能 -->
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>cn/pub/pojos/User.hbm.xml</value>
+				<value>cn/pub/pojos/Dict.hbm.xml</value>
+				<value>cn/pub/pojos/Link.hbm.xml</value>
+				<value>cn/pub/pojos/Tuan.hbm.xml</value>
+				<value>cn/pub/pojos/Search.hbm.xml</value>
+				<value>cn/pub/pojos/Product.hbm.xml</value>
+				<value>cn/pub/pojos/Category.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 配置事务（传播）管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager" lazy-init="true">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 事务拦截器 -->
+	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRED, readOnly</prop>
+				<prop key="find*">PROPAGATION_REQUIRED, readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 自动创建事务代理 -->
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>*Service</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 登录 -->
+	<bean id="loginAction" class="cn.pub.action.LoginAction" lazy-init="true" singleton="false">
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	<!-- 注销 -->
+	<bean id="logoutAction" class="cn.pub.action.LogoutAction" lazy-init="true" singleton="false">
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	<!-- 注册 -->
+	<bean id="registerAction" class="cn.pub.action.RegisterAction" lazy-init="true" singleton="false">
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	<!-- 找回密码 -->
+	<bean id="findAction" class="cn.pub.action.FindAction" lazy-init="true" singleton="false">
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	<!-- 重置密码 -->
+	<bean id="resetAction" class="cn.pub.action.ResetAction" lazy-init="true" singleton="false">
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	<!-- 后台管理 -->
+	<bean id="manageAction" lazy-init="true" singleton="false" class="cn.pub.action.ManageAction"></bean>
+  	
+  	<!-- 用户管理 -->
+	<bean id="userAction" class="cn.pub.action.UserAction" lazy-init="true" singleton="false">
+		<property name="userService" ref="userService" />
+		<property name="dictService" ref="dictService" />
+	</bean>
+	<bean id="userService" class="cn.pub.service.impl.UserServiceImpl" lazy-init="true">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	<bean id="userDao" class="cn.pub.dao.hibernate.UserDaoHibernate" lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+  	
+  	<!-- 系统分类管理 -->
+	<bean id="categoryAction" class="cn.pub.action.CategoryAction" lazy-init="true" singleton="false">
+		<property name="categoryService" ref="categoryService" />
+	</bean>
+	<bean id="categoryService" class="cn.pub.service.impl.CategoryServiceImpl" lazy-init="true">
+		<property name="categoryDao" ref="categoryDao" />
+	</bean>
+	<bean id="categoryDao" class="cn.pub.dao.hibernate.CategoryDaoHibernate" lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+  	
+  	<!-- 商品管理 -->
+	<bean id="productAction" class="cn.pub.action.ProductAction" lazy-init="true" singleton="false">
+		<property name="productService" ref="productService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="searchService" ref="searchService" />
+	</bean>
+	<bean id="productService" class="cn.pub.service.impl.ProductServiceImpl" lazy-init="true">
+		<property name="productDao" ref="productDao" />
+	</bean>
+	<bean id="productDao" class="cn.pub.dao.hibernate.ProductDaoHibernate" lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+  	
+  	<!-- 团购管理 -->
+	<bean id="tuanAction" class="cn.pub.action.TuanAction" lazy-init="true" singleton="false">
+		<property name="tuanService" ref="tuanService" />
+	</bean>
+	<bean id="tuanService" class="cn.pub.service.impl.TuanServiceImpl" lazy-init="true">
+		<property name="tuanDao" ref="tuanDao" />
+	</bean>
+	<bean id="tuanDao" class="cn.pub.dao.hibernate.TuanDaoHibernate" lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+  	
+  	<!-- 数据字典管理 -->
+	<bean id="dictAction" class="cn.pub.action.DictAction" lazy-init="true" singleton="false">
+		<property name="dictService" ref="dictService" />
+	</bean>
+	<bean id="dictService" class="cn.pub.service.impl.DictServiceImpl" lazy-init="true">
+		<property name="dictDao" ref="dictDao" />
+	</bean>
+	<bean id="dictDao" class="cn.pub.dao.hibernate.DictDaoHibernate" lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+  	
+  	<!-- 友情连接管理 -->
+	<bean id="linkAction" class="cn.pub.action.LinkAction" lazy-init="true" singleton="false">
+		<property name="linkService" ref="linkService" />
+	</bean>
+	<bean id="linkService" class="cn.pub.service.impl.LinkServiceImpl" lazy-init="true">
+		<property name="linkDao" ref="linkDao" />
+	</bean>
+	<bean id="linkDao" class="cn.pub.dao.hibernate.LinkDaoHibernate" lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+  	
+  	<!-- 搜索管理 -->
+	<bean id="searchService" class="cn.pub.service.impl.SearchServiceImpl" lazy-init="true">
+		<property name="searchDao" ref="searchDao" />
+	</bean>
+	<bean id="searchDao" class="cn.pub.dao.hibernate.SearchDaoHibernate" lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 定时生成纯静态的HTML文件 -->
+	<bean id="jobPub" class="cn.pub.action.SiteAction">
+		<property name="productService" ref="productService" />
+		<property name="searchService" ref="searchService" />
+	</bean>
+	<bean id="jobTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref local="jobPub"/>
+		</property>
+		<property name="targetMethod">
+			<value>doAuth</value>
+		</property>
+	</bean>
+	<bean id="cron" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="jobTask" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 9-21/1 * * ?</value><!-- 9点-21点,每隔1个小时[][0 0/1 9-21 * * ?] -->
+		</property>
+	</bean>
+	<bean autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref local="cron" />
+			</list>
+		</property>
+	</bean>	
+</beans>

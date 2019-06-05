@@ -1,0 +1,57 @@
+<div id="itemContainer1">
+			<li>
+				<div class="product_block_small_1">
+					<div class="product_block_small_picture_1">
+						<a href="56.html" target="_blank">
+							<img src="./upload/category_20120520132955812.jpg" width="116" height="82" title="寻医问诊测试" />
+						</a>
+					</div>
+					<div class="product_block_small_name">
+						<a href="56.html" title="寻医问诊测试" target="_blank">
+								寻医问诊测试
+						</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="product_block_small_1">
+					<div class="product_block_small_picture_1">
+						<a href="19.html" target="_blank">
+							<img src="./upload/category_20120510220954250.jpg" width="116" height="82" title="中医Test123" />
+						</a>
+					</div>
+					<div class="product_block_small_name">
+						<a href="19.html" title="中医Test123" target="_blank">
+								中医Test123
+						</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="product_block_small_1">
+					<div class="product_block_small_picture_1">
+						<a href="11.html" target="_blank">
+							<img src="./upload/category_20120508152346750.jpg" width="116" height="82" title="中医测试" />
+						</a>
+					</div>
+					<div class="product_block_small_name">
+						<a href="11.html" title="中医测试" target="_blank">
+								中医测试
+						</a>
+					</div>
+				</div>
+			</li>
+</div>
+<div class="holder1"></div>
+<script type="text/javascript" language="javascript">
+	// 在分页之前将content1设为可见，否则无法生成分页。因为分页插件不支持在不可见的区域生成分页
+	$("div.content1").css("display", "block");
+	
+	$("div.holder1").jPages({
+		containerID : "itemContainer1",
+		perPage		: 10
+	});
+
+	// 在分页之后将content1设为隐藏，否则在第一个区域将显示所有的分页
+	$("div.content1").css("display", "none");
+</script>

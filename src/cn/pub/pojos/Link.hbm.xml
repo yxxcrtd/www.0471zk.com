@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.pub.pojos.Link" table="&quot;T_Link&quot;">
+		<id name="linkId" type="int">
+			<column name="&quot;LinkId&quot;" />
+			<generator class="sequence">
+				<param name="sequence">&quot;T_Link_LinkId_seq&quot;</param>
+			</generator>
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="&quot;LinkName&quot;" length="15" not-null="true" />
+		</property>
+		<property name="url" type="java.lang.String">
+			<column name="&quot;LinkUrl&quot;" length="50" not-null="true" />
+		</property>
+		<property name="modified" type="java.util.Date">
+			<column name="&quot;LinkModified&quot;" length="23" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

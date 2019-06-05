@@ -1,0 +1,189 @@
+/* @2012 By Yang XinXin */
+ @CHARSET "UTF-8";
+
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: #FFF;
+	font: 12px/1.5 tahoma, arial, 宋体, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* 所有的图片的边框都为0 */
+img {
+	border: 0;
+}
+
+/* 表单的标题 */
+#form_title {
+	font-size: 22px;
+	font-weight: bold;
+	padding: 20px 0 15px 20px;
+	_padding: 18px 0 13px 20px;
+	
+	/* CSS3的阴影效果 */
+	text-shadow: 2px 1px 2px #808080;
+}
+
+/* 提示标签的样式 */
+#form label {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 3px;
+	_margin-bottom: 0;
+}
+
+/* 表单的表单项 */
+#form .form_item, #form_item1 {
+	padding: 0 0 10px 20px;
+}
+
+/* 表单的表单项1（屏蔽Struts2生成的label样式） */
+#form #form_item1 label {
+	display: inline-block;
+}
+
+/* 覆盖日期选择控件的字体大小 */
+.datePickerContainer {
+	font-size: 15px;
+}
+
+/* 表单的操作区域 */
+#form #form_opt {
+	padding: 15px 0 15px 20px;
+}
+
+/* 表单的输入框 */
+#form .input {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	_padding-bottom: 1px;
+	font-weight: bold;
+/* 	line-height: 30px; */ /* 如果需要支持IE6，则这个属性必须放到最后 */
+}
+
+/* 表格上面的查询 */
+#tableSearch {
+	text-align: right;
+	_height: 75px;
+	margin: 20px 0 0;
+	_margin: 20px 0 -50px 0;
+	overflow: hidden;
+}
+
+/* 表格 */
+#table {
+	width: 100%;
+	border: 1px solid #E6DBC0;
+	border-collapse: collapse;
+}
+
+/* 表格本身的标题 */
+#table thead tr th {
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+	border: 1px solid #E6DBC0;
+	background: url("../images/bg_table_head.gif") repeat-x scroll 0 0 transparent;
+	white-space: nowrap;
+	height: 22px;
+}
+
+/* 表格的主体 */
+#table tbody tr td {
+	padding: 0;
+	margin: 0;
+	height: 24px;
+	border: 1px dashed #FEDDCA;
+}
+
+/* 表格的搜索框 */
+#tableSearch {
+	text-align: right;
+	_height: 75px;
+	margin: 20px 0 0;
+	_margin: 20px 0 -50px 0;
+	overflow: hidden;
+}
+
+/* 表格内部的居中 */
+#table .center {
+	text-align: center;
+}
+
+/* 表格内部的居左 */
+#table .left {
+	text-align: left;
+	padding-left: 5px;
+}
+
+/* 表格内部的居右 */
+#table .right {
+	text-align: right;
+	padding-right: 8px;
+}
+
+/* 加宽表格的高度 */
+#table .height {
+	height: 40px;
+}
+
+/* 分页 */
+#pager {
+	text-align: right;
+	margin: 0px;
+}
+
+/* 信息提示样式 */
+.tip {
+	color: #F00;
+	font-weight: bold;
+	padding: 20px;
+	text-align: center;
+}
+
+
+/* 最大长度提示的字体颜色 */
+.charsLeft {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+/* 按纽样式 */
+.btn {
+	cursor: pointer;
+	padding: 2px 10px 3px;
+	_padding: 2px 4px 1px;
+	height: 23px;
+	_height: 22px;
+	font-size: 12px;
+	blr: expression(this.onFocus = this.blur () );
+}
+
+/* 按纽样式（点击后没有虚线框）*/
+.btn::-moz-focus-inner {
+	border: none;
+	border-color: transparent !important;
+}
+
+/* 红色粗体 */
+.font_red {
+	color: #FE6000;
+	font-weight: bold;
+}
+
+/* 红色粗体 */
+.font_red {
+	color: #FE6000;
+	font-weight: bold;
+}
+
+.font_fff {
+	color: #FF00FF;
+	font-weight: bold;
+}
+
+textarea {
+	resize: none;
+}

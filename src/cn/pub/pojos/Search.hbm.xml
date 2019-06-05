@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.pub.pojos.Search" table="&quot;T_Search&quot;">
+		<id name="searchId" type="int">
+			<column name="&quot;SearchId&quot;" />
+			<generator class="sequence">
+				<param name="sequence">&quot;T_Search_SearchId_seq&quot;</param>
+			</generator>
+		</id>
+		<property name="keyword" type="java.lang.String">
+			<column name="&quot;SearchKeyword&quot;" length="22" not-null="true" />
+		</property>
+		<property name="counts" type="int">
+			<column name="&quot;SearchCount&quot;" not-null="true" />
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="&quot;SearchCreateDate&quot;" length="23" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

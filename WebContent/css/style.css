@@ -1,0 +1,1801 @@
+/* Copyright 2012 */
+/* Author: Yang XinXin */
+@CHARSET "UTF-8";
+
+
+/* 整个页面样式 */
+html, body {
+	margin: 0;
+	padding: 0;
+	color: #226689;
+	background-color: #FFF;
+	font: 12px/1.5 tahoma, arial, 宋体, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* 所有的图片的边框不需要 */
+img {
+	border: none;
+}
+
+/* 去除超连接点击之后的虚线框 */
+a {
+	border: none;
+	outline: none; /* Firefox */
+	text-decoration: none;
+	blr: expression(this.onFocus = this.blur()); /* IE, Opera*/
+}
+
+/* 超连接获得焦点时无轮廓 */
+a:focus {
+	-moz-outline-style: none; /* Firefox */
+}
+
+/* 超连接 样式 */
+a:link {
+	color: #3179A1;
+}
+
+/* 鼠标移上的样式 */
+a:hover {
+	color: #F00;
+	text-decoration: underline;
+}
+
+/* 超连接激活时的样式 */
+a:active {
+	color: #F00;
+}
+
+/* 访问过后的样式 */
+a:visited {
+	color: #3179A1;
+	text-decoration: none;
+}
+
+/* 页面顶部的整体样式 */
+#top {
+	height: 87px;
+	width: 950px;
+	margin: 0 auto;
+}
+
+/* 页面顶部的左边(logo)样式 */
+#top_left {
+	float: left;
+	width: 265px;
+	height: 87px;
+	background: url("../images/logo.jpg") no-repeat scroll center center #FFFFFF;
+	overflow: hidden;
+}
+
+/* 页面顶部的中间整体样式 */
+#top_middle {
+	float: left;
+	width: 507px; /* 950 - 265 - 178 */
+	height: 87px;
+}
+
+/* 页面顶部的中间的热门搜索 */
+#top_middel_hot_search {
+	color: #226689;
+	padding-top: 15px;
+	font-weight: bold;
+}
+
+/* 页面顶部的中间的搜索和登录 */
+#top_middel_search, #top_middel_login {
+	padding-top: 3px;
+}
+
+/* 登录和搜索按纽的背景图片 */
+#login, #search {
+	width: 41px;
+	height: 18px;
+	cursor: pointer;
+	border: none;
+	blr: expression(this.onFocus = this.blur () );
+}
+
+/* 登录按纽的背景图片 */
+#login {
+	background:url("../images/bg_login.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+/* 搜索按纽的背景图片 */
+#search {
+	background:url("../images/bg_search.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+/* 页面顶部的右边(联系电话)样式 */
+#top_right {
+	float: right;
+	width: 178px;
+	height: 87px;
+	background: url("../images/bg_phone.jpg") no-repeat scroll center center #FFFFFF;
+	overflow: hidden;
+}
+
+/* 菜单 */
+#menu {
+	height: 38px;
+	margin: 0 auto;
+	max-width: 1416px;
+	background: url("../images/bg_menu.jpg") repeat-x scroll center center #FFFFFF;
+}
+
+/* 菜单的主体 */
+#menu_main {
+	font-size: 15px;
+	font-weight: bold;
+	width: 880px;
+	margin: 0 auto;
+}
+
+/* 菜单的主体的超连接样式(单独写出来是为了与整站风格统一) */
+#menu_main .a {
+	float: left;
+	width: 88px;
+	text-align: center;
+	border: none;
+	color: #FFFFFF;
+}
+
+/* 菜单中的超连接字体布局 */
+span.menu_a {
+	float: left;
+	width: 87px;
+	padding-top: 9px;
+	cursor: pointer;
+}
+
+/* 菜单的主体的超连接的鼠标移上时的样式(单独写出来是为了与整站风格统一) */
+#menu_main .a:hover {
+	color: #F00;
+	text-decoration: none;
+}
+
+/* 当前显示的菜单 */
+#menu_main .current {
+	color: #FF0000;
+	width: 87px;
+	height: 38px;
+	background: url("../images/bg_menu_current2.jpg") no-repeat scroll top center #FFFFFF;
+}
+
+/* 菜单中的分割符 */
+.menu_separator {
+	float: left;
+	padding: 0;
+	width: 2px;
+	height: 38px;
+	background: url("../images/bg_separator.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+/* 每个页面顶部的热门专题推荐 */
+#recommend {
+	height: 30px;
+	margin: 0 auto;
+	max-width: 1416px;
+	background: url("../images/bg_recommend.jpg") repeat-x scroll center center #FFFFFF;	
+}
+
+/* 热门专题推荐的主体 */
+#recommend_main {
+	width: 885px;
+	margin: 0 auto;
+	padding-top: 5px;
+}
+
+/* 整个页面容器 */
+#container {
+	width: 950px;
+	margin: 0 auto;
+}
+
+/* 首页上的广告 */
+#ad {
+	width: 950px;
+	height: 70px;
+	background: url("../images/ad/ad.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+/* 首页中间的左边 */
+#index_left {
+	float: left;
+	width: 220px;
+	/* height: 1823px;	高度不用设置，因为左边的分类是不固定的。如果固定，则其尺寸值：263 + 10 + 422 + (10 + 216) * 5 - 1*2(当前的两个边框) */
+}
+
+/* 首页上的分类的顶部的边线 */
+.index_category_top {
+	padding-top: 1px;
+	border-bottom: 1px solid #B3C9D6;
+}
+
+/* 体验卡和团购的顶部 */
+div#attempt_top, div#tuan_top {
+	width: 216px;
+	height: 27px;
+	padding: 1px 1px 0 1px;
+    border-left: 1px solid #B3C9D6;
+    border-right: 1px solid #B3C9D6;
+    border-top: 1px solid #B3C9D6;
+}
+div#attempt_top {
+	background: url("../images/bg_attempt.jpg") no-repeat scroll center center #FFFFFF;
+}
+div#tuan_top {
+	background: url("../images/bg_tuan.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+/* 体验卡和团购的底部 */
+div#attempt_bottom, div#tuan_bottom {
+    border-left: 1px solid #B3C9D6;
+    border-right: 1px solid #B3C9D6;
+    border-bottom: 1px solid #B3C9D6;
+    padding-bottom: 7px;
+    _padding-bottom: 1px;
+}
+div#attempt_bottom {
+    height: 178px;
+}
+div#tuan_bottom {
+    height: 210px;
+}
+div.tuan_title, div.tuan_price {
+	width: 200px;
+	height: 18px;
+	text-align: center;
+}
+
+/* 体验卡的底部的第一个 */
+div#attempt_bottom_first {
+	background-color: #FFFFFF;
+	width: 216px;
+	height: 97px;
+	_height: 92px;
+	margin: 0 0 1px 2px;
+	line-height: 22px;
+	_line-height: 18px;
+}
+
+/* 体验卡的底部的第一个标题 */
+div#placard_bottom_first_top {
+	font-size: 14px;
+	padding-top: 8px;
+	_padding-top: 4px;
+}
+
+/* 导航标签的整体样式 */
+#tags {
+	margin: 0;
+	padding: 0 0 0 7px;
+	_padding: 0 0 0 3px;
+}
+
+/* 未激活的标签块 */
+#tags li {
+	float: left;
+	list-style-type: none;
+	margin: 3px;
+	background-color: #F5E4DC;
+}
+
+/* 所有标签的超连接 */
+#tags li a {
+	float: left;
+	padding: 0 5px 1px 5px;
+	text-decoration: none;
+}
+
+/* 当前激活的标签 */
+#tags li.selectTag {
+	position: relative;
+	background-color: #0099FF;
+}
+
+#tags li.selectTag a {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+/* 每个主要展示的区域 */
+.tagContent {
+	display: none;
+	padding: 5px 2px 0 0;
+	_padding: 0 2px 0 0;
+	height: 195px; /* 不加高度的话，第一个切换会改变高度 */
+}
+
+#tagContent div.selectTag {
+	display: block;
+}
+
+#tagContent li {
+	float: left;
+	padding-left: 9px; /* 图片宽度是200，本身宽度是218，所以9是居中 */
+	list-style: none;
+}
+
+/* 热门排行榜的顶部 */
+#hit_top {
+	width: 218px;
+	height: 32px;
+	border: 1px solid #B3C9D6;
+}
+
+/* 热门排行榜的标题 */
+#hit_title {
+	width: 206px;
+	color: #000000;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 6px 0 0 10px;
+	margin: 1px;
+	background: url("../images/bg_hit.jpg") repeat-x scroll center center #FFFFFF;
+}
+
+/* 热门排行榜的底部 */
+#hit_bottom {
+	width: 218px;
+	height: 416px;
+	border-right: 1px solid #B3C9D6;
+	border-bottom: 1px solid #B3C9D6;
+	border-left: 1px solid #B3C9D6;
+	overflow: hidden;
+}
+
+/* 一个热门排行榜(背景是灰色) */
+.product_hit_bg {
+	background-color: #EEEEEE;
+}
+
+/* 一个热门排行榜(没有背景) */
+.product_hit {
+	background-color: #FFFFFF;
+}
+
+/* 一个热门排行榜块 */
+.product_hit, .product_hit_bg {
+	width: 216px;
+	height: 67px;
+	margin: 2px 0 1px 2px;
+	line-height: 20px;
+	_line-height: 22px;
+	overflow: hidden;
+}
+
+/* 热门排行榜的图片 */
+.product_hit_picture {
+	float: left;
+	width: 92px;
+	height: 67px;
+}
+
+/* 热门排行榜的文字 */
+.product_hit_introduce {
+	float: left;
+	padding: 5px 0 0 5px;
+	width: 119px; /* 216 - 92 - 5 */
+}
+
+/* 热门排行榜的文字项目 */
+.product_hit_introduce_item {
+	font-weight: bold;
+}
+
+/* 首页中间的右边 */
+#index_right {
+	float: right;
+	width: 720px;
+}
+
+/* 二级页面的顶部的左边的滚动部分 */
+#product_top_scroll {
+	float: left;
+	width: 698px;
+	height: 240px;
+	border: 1px solid #B3C9D6;
+}
+
+/* 特色功能 */
+#featured {
+	width: 698px;
+	height: 240px;
+	position: relative;
+	background: #FFFFFF;
+}
+
+/* 左边显示的图片 */
+#featured .ui-tabs-panel {
+	width: 513px;
+	height: 240px;
+	position: relative;
+	overflow: hidden;
+}
+
+/* 右边的ul整体样式 */
+#featured ul.ui-tabs-nav {
+	width: 185px; /* 698 - 513 */
+	height: 240px;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	left: 513px;
+	list-style: none;
+	position: absolute;
+}
+
+/* 右边的当前激活的li */
+#featured ul.ui-tabs-nav li.ui-tabs-selected a {
+	color: #FFFFFF;
+	background: url('../images/bg_scroll1.jpg') no-repeat scroll center center;
+}
+
+/* 右边的未激活的li */
+#featured ul.ui-tabs-nav li {
+	font-size: 14px;
+	width: 185px;
+	height: 47px;
+	_height: 46px;
+	border-top: 1px solid #EEEEEE;
+}
+
+/* 右边的未激活的li超连接 */
+#featured li.ui-tabs-nav-item a {
+	display: block;
+	color: #000;
+	height: 33px;
+	padding: 14px 0 0 13px;
+	background: url('../images/bg_scroll2.jpg') repeat-x scroll center center;
+}
+
+/* li里面的字体样式 */
+#featured ul.ui-tabs-nav li span {
+	font-size: 16px;
+}
+
+/* li鼠标移上时，去掉下面的下划线 */
+#featured li.ui-tabs-nav-item a:hover {
+	text-decoration: none;
+}
+
+/* 将5张切换的图片隐藏 */
+#featured .ui-tabs-hide {
+	display: none;
+}
+
+/* 二级页面的顶部的右边的公告 */
+#product_top_placard {
+	float: left;
+	width: 238px; /* 950 - 700 - 10 - 1*2 */
+	height: 240px;
+	border: 1px solid #B3C9D6;
+}
+/* 二级页面的顶部的右边的公告的顶部背景 */
+#product_top_placard_top {
+	width: 235px;
+	height: 28px;
+	margin: 0 1px;
+	background: url("../images/bg_product_placard.jpg") no-repeat scroll center center #FFFFFF;
+}
+/* 二级页面的顶部的右边的公告的底部 */
+#product_top_placard_bottom {
+	margin-top: 3px;
+}
+/* 二级页面的顶部的右边的公告的数据项 */
+.product_top_placard_bottom_item {
+	height: 17px;
+	padding: 3px 0 0 15px;
+}
+
+/* 最终展示页面的左边主体 */
+#productId_left {
+	float: left;
+	width: 220px;
+	/* height: 807px; 	因为分类不确定，所以不用加高度。（这个值由product_right算得(422 + 10 + 375)） */
+}
+
+/* 二级或三级的系统分类 */
+#tree_house, #tree_food, #tree_fun, #tree_travel, #tree_celebration, #tree_education, #tree_medical, #tree_gift {
+	width: 218px;
+	border-right: 1px solid #B3C9D6;
+	border-bottom: 1px solid #B3C9D6;
+	border-left: 1px solid #B3C9D6;
+}
+
+/* 首页的系统分类 */
+#index_tree_house, #index_tree_food, #index_tree_fun, #index_tree_travel, #index_tree_celebration, #index_tree_education, #index_tree_medical, #index_tree_gift {
+	width: 218px;
+}
+
+/* 分类高度的自动适应，Just For Firefox */
+#index_category, #category_house, #category_food, #category_fun, #category_travel, #category_celebration, #category_education, #category_medical, #category_gift {
+	height: auto!important;
+	overflow: hidden; /* 自动适应高度 */
+}
+
+/* 首页上的分类 */
+#index_category {
+	height: 833px;
+    border-left: 1px solid #B3C9D6;
+    border-right: 1px solid #B3C9D6;
+    border-bottom: 1px solid #B3C9D6;
+}
+
+/* 分类浏览的标题 */
+#category_title {
+	width: 218px;
+	height: 27px;
+	border-top: 1px solid #B3C9D6;
+	border-right: 1px solid #B3C9D6;
+	border-left: 1px solid #B3C9D6;
+}
+
+/* 分类浏览的标题内部的图片 */
+#category_title_inner {
+	width: 216px;
+	height: 25px;
+	margin: 1px;
+	background: url("../images/bg_category_title.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+/* 首页分类树的标题 */
+div.index_tree_title {
+	width: 211px; /* 218 - 1 - 5 - ? - 1 */
+	_width: 209px;
+	height: 20px;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0 1px 1px 1px;
+	padding: 1px 0 0 5px;
+	*padding: 4px 0 0 5px;
+	background-color: #FFF2D5;
+}
+
+/* 左边的二级分类 */
+div.category_item_left {
+	float: left;
+	width: 50px;
+	margin: 2px 3px;
+	padding-left: 10px;
+	clear: both; /* 清理之前的样式 */
+	height: auto!important;
+	overflow: hidden; /* 自动适应高度 */
+}
+
+/* 右边的三级分类 */
+div.category_item_right {
+	float: left;
+	margin: 0 5px;
+	white-space: nowrap; /* 控制IE6下不自动换行 */
+}
+
+/* 右边的总的三级分类 */
+div.category_item_right_all {
+	margin-top: 2px;
+	width: 142px;
+	height: auto!important;
+	overflow: hidden; /* 自动适应高度 */
+}
+
+/* 二级或三级分类的标题 */
+.category_root {
+	float: left;
+	width: 211px; /* 218 - 1 - 5 - ? - 1 */
+	_width: 209px;
+	height: 20px;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 1px;
+	padding: 1px 0 0 5px;
+	*padding: 4px 0 0 5px;
+	background-color: #FFF2D5;
+}
+
+/* 二级分类下的项目 */
+div.category_item {
+	float: left;
+	margin: 3px 3px 4px 4px;
+	padding: 0 2px;
+	white-space: nowrap; /* 控制IE6下不自动换行 */
+}
+
+/* 二级分类鼠标移上时的样式 */
+div.category_item a:hover {
+	color: #FF0000;
+	text-decoration: underline;
+	background-color: #FFF2D5;
+	cursor: pointer;
+}
+
+/* 分类之间的分隔线 */
+span.separator {
+	float: left;
+	color: #E0E0E0;
+	padding: 0;
+	margin: 3px 0 4px 0;
+	*margin: 0;
+	white-space: nowrap; /* 控制IE6下不自动换行 */
+}
+
+/* 登录成功之后的分隔线 */
+span.separator1 {
+	color: #E0E0E0;
+	padding: 0 5px;
+}
+
+/* 首页系统分类之间的分隔线 */
+span.separator2 {
+	float: left;
+	color: #E0E0E0;
+	padding: 0;
+	white-space: nowrap; /* 控制IE6下不自动换行 */
+}
+
+/* 二级页面的右边主体 */
+#product_right {
+	float: right;
+	width: 720px;
+	height: 745px;
+	*height: 739px;
+	overflow: hidden;
+}
+
+/* 最终展示页面的右边主体 */
+#productId_right {
+	float: right;
+	width: 718px;
+	height: 830px;
+	_height: 831px;
+	border: 1px solid #B3C9D6;
+	border-top: 3px solid #226689;
+	overflow: hidden;
+}
+
+/* 最终展示页面的右边主体的上面图片部分 */
+#productId_right_picture {
+	float: left;
+	width: 718px;
+	height: 180px;
+}
+
+#productId_right_picture_img {
+	float: left;
+	width: 235px;
+	height: 180px;
+	padding-left: 20px;
+}
+
+#productId_right_picture_info {
+	float: left;
+	width: 433px; /* 718 - 10*2 - 235 - 20*2 */
+	height: 180px;
+	padding-left: 20px;
+}
+#productId_right_picture_info_title {
+	font-size: 15px;
+	font-weight: bold;
+	padding-bottom: 3px;
+}
+#productId_right_picture_info_item1 {
+	color: #E17509;
+}
+
+/* 使用说明的文字 */
+#productId_right_instruction {
+	color: #000000;
+	font-weight: bold;
+	margin: 0 10px;
+	padding: 3px 0 0 16px;
+	_padding: 3px 3px 0 16px;
+}
+
+/* 商品的主体信息中间的两个小横分隔 */
+.productId_right_separator {
+	height: 5px;
+	weight: 700px;
+	padding: 0 0 0 16px;
+	overflow: hidden;
+}
+.productId_right_separator_left {
+	float: left;
+	width: 270px;
+	height: 5px;
+	background-color: #7192A3;
+}
+.productId_right_separator_right {
+	float: left;
+	width: 420px;
+	height: 2px;
+	margin-top: 3px;
+	background-color: #BBBBBB;
+}
+
+/* 使用说明的主体（包括优惠券） */
+#productId_right_instruction_main {
+	padding: 0 0 0 16px;
+	height: 153px;
+	width: 700px;
+}
+
+/* 使用说明的主体文字介绍 */
+#productId_right_instruction_main_text {
+	float: left;
+	width: 290px;
+	color: #000000;
+	padding: 5px 15px 0 5px;
+}
+#productId_right_instruction_main_text_top {
+	float: left;
+	width: 290px;
+	height: 125px;
+}
+#productId_right_instruction_main_text_bottom {
+	float: left;
+	width: 290px;
+	color: #000000;
+	font-weight: bold;
+	padding: 5px 0 0 5px;
+}
+
+/* 使用说明的主体的优惠券图片 */
+#productId_right_instruction_main_voucher {
+	float: left;
+	height: 148px;
+	width: 275px;
+	padding: 5px 5px 0 10px;
+}
+
+/* 使用说明的主体的优惠券打印 */
+#productId_right_instruction_main_print, #productId_right_instruction_main_print1 {
+	float: left;
+	width: 70px;
+	color: #000000;
+	font-size: 14px;
+	padding: 15px 0 0 5px;
+}
+
+/* 商家简介的文字部分 */
+#productId_right_introduce {
+	float: left;
+	height: 108px;
+	color: #000000;
+	padding: 5px 8px 5px 22px;
+}
+
+/* 相关商品 */
+#productId_right_interrelated {
+	color: #FFFFFF;
+	font-weight: bold;
+	background-color: #1B506F;
+	height: 20px;
+	margin: 0 10px;
+	padding: 3px 0 0 16px;
+}
+
+
+
+
+
+/****************************** jQuery 插件部分 - Page ******************************/
+/* 分页容器 */
+#itemContainer, #itemContainer1, #itemContainer2, #itemContainer3, #itemContainer4 {
+	list-style: none;
+	padding: 0 13px;
+	margin: 5px 0;
+}
+
+/* 分页容器内部的每个li */
+#itemContainer li, #itemContainer1 li, #itemContainer2 li, #itemContainer3 li, #itemContainer4 li {
+	display: inline-block; /* 必须放在最前面 */
+	margin: 5px 8px;
+	_margin: 5px 9px;
+	zoom: 1;
+	*display: inline;
+}
+
+/* 下面分页 */
+.holder, .holder1, .holder2, .holder3, .holder4 {
+	text-align: center;
+	height: 20px;
+	margin: 5px 10px;
+	padding: 3px 0 0 16px;
+	background-color: #E7E7E7;
+}
+
+/* 分页的超连接 */
+.holder a, .holder1 a, .holder2 a, .holder3 a, .holder4 a {
+	cursor: pointer;
+	margin: 0 5px;
+}
+
+/* 分页的鼠标移上时的样式 */
+.holder a:hover, .holder1 a:hover, .holder2 a:hover, .holder3 a:hover, .holder4 a:hover {
+	color: #FFFFFF;
+	background-color: #222222;
+	text-decoration: none;
+}
+
+/* 上一页与前面数字的距离 */
+.holder a.jp-previous, .holder1 a.jp-previous, .holder2 a.jp-previous, .holder3 a.jp-previous, .holder4 a.jp-previous {
+	margin-right: 15px;
+}
+
+/* 下一页与前面数字的距离 */
+.holder a.jp-next, .holder1 a.jp-next, .holder2 a.jp-next, .holder3 a.jp-next, .holder4 a.jp-next {
+	margin-left: 15px;
+}
+
+/* 鼠标移到 下一页 上的样式 */
+.holder a.jp-next:hover, .holder1 a.jp-next:hover, .holder2 a.jp-next:hover, .holder3 a.jp-next:hover, .holder4 a.jp-next:hover {
+	color: #FFFFFF;
+	background-color: #222222;
+	text-decoration: none;
+}
+
+/* 当前激活的 */
+.holder a.jp-current, a.jp-current:hover, .holder1 a.jp-current, .holder2 a.jp-current, .holder3 a.jp-current, .holder4 a.jp-current {
+	color: #FF0000;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+/* 连接不可点的颜色 */
+.holder a.jp-disabled, a.jp-disabled:hover, .holder1 a.jp-disabled, .holder2 a.jp-disabled, .holder3 a.jp-disabled, .holder4 a.jp-disabled {
+	color: #BBBBBB;
+}
+
+/* 连接不可点 */
+.holder a.jp-current, .holder1 a.jp-current, .holder2 a.jp-current, .holder3 a.jp-current, .holder4 a.jp-current, 
+a.jp-current:hover, a.jp-disabled:hover, 
+.holder a.jp-disabled, .holder1 a.jp-disabled, .holder2 a.jp-disabled, .holder3 a.jp-disabled, .holder4 a.jp-disabled {
+	cursor: default;
+	background: none;
+}
+
+
+/* 最终展示页面的右边主体的下面的售后服务 */
+#productId_right_service {
+	width: 720px;
+	height: 140px;
+	padding-left: 230px;
+}
+
+/* 最终展示页面的右边主体的下面的售后服务的左边 */
+#productId_right_service_left {
+	float: left;
+	width: 93px;
+	_width: 80px;
+	height: 90px;
+	padding-top: 50px;
+	color: #F00;
+	font-size: 20px;
+}
+
+/* 最终展示页面的右边主体的下面的售后服务的右边 */
+#productId_right_service_right {
+	padding-top: 20px;
+}
+
+/* 6张图片的Flash显示 */
+#show {
+	float: left;
+	width: 471px;
+	height: 263px;
+}
+
+/* 限量抢购和折扣公告 */
+#limit_placard {
+	float: right;
+	width: 237px; /* 720 - 471 - 10 - 2 */
+	height: 261px;
+	border: 1px solid #B3C9D6;
+}
+
+/* 限量抢购的顶部背景 */
+#limit_top {
+	width: 231px;
+	height: 28px;
+	padding: 3px 3px 0 3px;
+	background: url("../images/bg_limit.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+/* 限量抢购的中间商品名称*/
+#limit_middle {
+	width: 229px; /* 231 - 5 - 3 */
+	height: 22px;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 3px 3px 0 5px;
+}
+
+#limit_bottom_left {
+	float: left;
+	width: 96px;
+	height: 69px;
+	padding: 3px 3px 0 5px;
+}
+
+#limit_bottom_right {
+	float: left;
+	color: #FE6000;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+/* 折扣公告的顶部 */
+#placard_top {
+	width: 226px;
+	height: 20px;
+	padding: 0 3px 0 7px;
+	background: url("../images/bg_placard.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+/* 折扣公告的底部列表 */
+.placard_bottom_item {
+	height: 17px;
+	padding: 3px 0 0 15px;
+}
+
+/* 首页和二级页面的案例展示 */
+#case {
+	float: left;
+	width: 718px;
+	height: 420px;
+	border: 1px solid #B3C9D6;
+	background-color: #FFFFFF;
+}
+
+/* 案例展示的顶部 */
+#case_top {
+	height: 29px;
+	background: url("../images/bg_case.jpg") repeat-x scroll top center #FFFFFF;	
+}
+
+/* 案例展示的顶部的箭头 */
+#case_top_arrow {
+	float: left;
+	padding: 4px 0 5px 3px;
+}
+
+/* 案例展示的顶部的左边 */
+#case_top_left {
+	float: left;
+	width: 70px;
+	padding: 4px 0 4px 3px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* 案例展示的顶部的右边 */
+#case_top_right {
+	float: left;
+}
+
+#case_top_right ul {
+	margin: 0;
+	padding: 0;
+	height: 25px; /* 740 - (下面的分类推荐)156 - (gap_row)10 * 3 - (block_case) 260 * 2  */
+	width: 588px; /* 718 - 130 */
+}
+
+/* 标签页 */
+#case_top_right li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* 让所有的 li 排在同一行 */
+#case_top_right li {
+	float: left;
+	cursor: pointer;
+}
+
+/* 当前显示的 Tab */
+#case_top_right li.tabin {
+	color: #FFFFFF;
+	background: url("../images/bg_case_li.jpg") no-repeat scroll center 0 #FFFFFF;
+}
+
+/* Tab激活或未激活时的公共属性 */
+#case_top_right li, #case_top_right li.tabin {
+	text-align: center;
+	padding-top: 5px;
+	_padding-top: 6px;
+	width: 70px;
+	height: 24px;
+}
+
+#case_bottom {
+	width: 718px;
+	height: 391px;
+	background-color: #FFFFFF;
+}
+
+/* 每个案例块（首页上的） */
+.block_case {
+	float: left;
+	width: 152px;
+	height: 175px;
+	text-align: center;
+	margin: 5px 0 0 15px;
+	_margin: 6px 0 0 9px;
+}
+
+/* 图片块（这里的width和height必须与页面中的相同） */
+.block_case_picture {
+	float: left;
+	width: 152px;
+	height: 110px;
+	padding: 1px;
+	border: 1px solid #E1E1E1;
+	overflow: hidden;
+}
+
+/* 商品名称 */
+.block_case_name, .block_case_name1 {
+	float: left;
+	width: 156px; /* 图片边框和margin */
+	padding-top: 2px;
+	text-align: center;
+}
+
+/* 折扣价 */
+.block_case_name1 {
+	color: #999999;
+	font-weight: bold;
+}
+
+/* 不显示的区域 */
+div.content {
+	display: none;
+}
+
+/* 二级页面的所有案例展示 */
+#list {
+	float: left;
+	width: 720px;
+	background-color: #FFFFFF;
+	
+	/* height: 311px; 在638行的product_right中的高度是743 - 422 - 10 */
+	/* *height: 304px; 736 - 422 - 10 */
+	height: auto!important;
+	overflow: hidden;
+}
+
+/* 二级页面的所有案例展示的顶部 */
+#list_top {
+	height: 24px;
+	background: url("../images/bg_product_case.jpg") repeat-x scroll center center #FFFFFF;
+}
+
+/* 二级页面的所有案例展示的顶部的图片 */
+#list_top_picture {
+	float: left;
+	width: 8px;
+	height: 13px;
+	margin: 5px 0 0 10px;
+	_margin: 7px 0 0 5px;
+}
+
+/* 二级页面的所有案例展示的顶部的左边 */
+#list_top_left {
+	float: left;
+	width: 80px;
+	margin: 2px 0 0 5px;
+	_margin: 5px 0 0 5px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+/* 二级页面的所有案例展示的顶部的右边 */
+#list_top_right {
+	float: left;
+	height: 22px;
+	margin: 2px 0 0 0;
+}
+
+/* 整个ul */
+#list_top_right ul {
+	margin: 0;
+	padding: 0;
+	height: 22px;
+	width: 588px; /* 718 - 130 */
+}
+
+/* 当前激活的Tab */
+#list_top_right li.tabin1 {
+	color: #3179A1;
+	font-size: 14px;
+	background-color: #FFFFFF;
+}
+
+/* 未激活的Tab */
+#list_top_right li {
+	float: left; /* 让所有的 li 排在同一行 */
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: bold;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* 激活与未激活的公共属性 */
+#list_top_right li, #list_top_right li.tabin1 {
+	width: 70px;
+	height: 20px;
+	margin-top: 2px; /* 这两个等于上面的22（#list_top_right ul） */
+	/* For IE6 */
+	_height: 20px;
+	_margin-top: 2px;
+	text-align: center;
+}
+
+/* 二级页面下面的所有案例展示 */
+#list_bottom {
+	width: 718px;
+	height: 288px; /* 在638行的product_right中的高度是745 - 422 - 10 - 24 */
+	*height: 280px; /* 739 - 422 - 10 - 24 */
+	border-left: 1px solid #B3C9D6;
+	border-bottom: 1px solid #B3C9D6;
+	border-right: 1px solid #B3C9D6;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+
+/* 搜索结果的顶部的左边 */
+div#search_top_left {
+	float: left;
+	margin: 2px 0 0 5px;
+	_margin: 3px 0 0 5px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+/* 搜索页面的右边主体 */
+div#search_right {
+	float: right;
+	width: 720px;
+	height: 451px;
+}
+
+/* 搜索结果的底部 */
+div#search_bottom {
+	width: 718px;
+	height: 426px; /* 451 - 24 */
+	border-left: 1px solid #B3C9D6;
+	border-bottom: 1px solid #B3C9D6;
+	border-right: 1px solid #B3C9D6;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+
+/* 每个搜索块 */
+div.search_block {
+	float: left;
+	width: 150px;
+	height: 175px;
+	text-align: center;
+}
+
+/* 每个搜索块的鼠标移上背景变色效果 */
+div.search_block:hover {
+	background-color: #EEEEEE;
+}
+
+/* 搜索的图片块（这里的width和height必须与页面中的相同） */
+div.search_block_picture {
+	float: left;
+	width: 146px;
+	height: 110px;
+	padding: 1px;
+	border: 1px solid #E1E1E1;
+	overflow: hidden;
+}
+
+/* 搜索的商品名称 */
+div.search_block_name, .div.search_block_name1 {
+	float: left;
+	width: 150px; /* 图片边框 + margin */
+	padding-top: 2px;
+	text-align: center;
+}
+
+/* 搜索的折扣价 */
+div.search_block_name1 {
+	color: #999999;
+	font-weight: bold;
+}
+
+/* 分类结果的底部 */
+div#category_bottom {
+	width: 718px;
+	height: auto!important;
+	border-left: 1px solid #B3C9D6;
+	border-bottom: 1px solid #B3C9D6;
+	border-right: 1px solid #B3C9D6;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+
+/* 二级页面的所有案例每个案例块（首页上的） */
+.block_list {
+	float: left;
+	width: 152px;
+	height: 175px;
+	text-align: center;
+	margin: 5px 0 0 15px;
+	_margin: 6px 0 0 9px;
+}
+
+/* 图片块（这里的width和height必须与页面中的相同） */
+.block_list_picture {
+	float: left;
+	width: 152px;
+	height: 110px;
+	padding: 1px;
+	border: 1px solid #E1E1E1;
+	overflow: hidden;
+}
+
+/* 商品名称 */
+.block_list_name, .block_list_name1 {
+	float: left;
+	width: 156px; /* 图片边框和margin */
+	padding-top: 2px;
+	text-align: center;
+}
+
+/* 折扣价 */
+.block_list_name1 {
+	color: #999999;
+	font-weight: bold;
+}
+
+/* 分页背景颜色：#FFE9D4 */
+#index_house_main, #index_food_main, #index_fun_main, #index_travel_main, #index_celebration_main {
+	width: 718px;
+	height: 190px;
+	border: 1px solid #B3C9D6;
+}
+
+#index_house_top, #index_food_top, #index_fun_top, #index_travel_top, #index_celebration_top {
+	width: 720px;
+	height: 24px;
+}
+
+#index_house_top {
+	background:url("../images/bg_house.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+#index_food_top {
+	background:url("../images/bg_food.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+#index_fun_top {
+	background:url("../images/bg_fun.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+#index_travel_top {
+	background:url("../images/bg_travel.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+#index_celebration_top {
+	background:url("../images/bg_celebration.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+.more_case {
+	font-size: 11px;
+	font-weight: bold;
+	padding: 7px 0 0 212px;
+}
+
+/* 菜单的主体的超连接样式(单独写出来是为了与整站风格统一) */
+.more_case a {
+	color: #FFFFFF;
+	border: none;
+}
+
+/* 菜单的主体的超连接的鼠标移上时的样式(单独写出来是为了与整站风格统一) */
+.more_case a:hover {
+	color: #F00;
+	text-decoration: none;
+}
+
+/* 小的商品块样式 */
+.product_block_small {
+	float: left;
+	margin: 21px 4px 15px 20px;
+	_margin: 21px 5px 15px 15px;
+	width: 115px; /* 图片的大小（111）+ 3 */
+	height: 150px;
+	overflow: hidden;
+}
+
+/* 图片块（这里的width和height必须与页面中的相同） */
+.product_block_small_picture {
+	float: left;
+	width: 111px;
+	height: 82px;
+	padding: 1px;
+	border: 1px solid #E1E1E1;
+	overflow: hidden;
+}
+
+/* 商品名称 */
+.product_block_small_name, .product_block_small_name1 {
+	float: left;
+	width: 120px;
+	padding-top: 4px;
+	text-align: center;
+}
+
+/* 所有二级页面的商品分类中的小图片div */
+div.product_block_small_1 {
+	float: left;
+	width: 115px;
+	float: left;
+	width: 120px;
+	padding-top: 4px;
+	text-align: center;
+	overflow: hidden;
+}
+
+div.product_block_small_1:hover {
+	background-color: #EEEEEE;
+}
+
+div.product_block_small_picture_1 {
+	float: left;
+	width: 116px;
+	height: 82px;
+	padding: 1px;
+	border: 1px solid #E1E1E1;
+	overflow: hidden;
+}
+
+/* 商品名称的超连接样式 */
+.product_block_small_name a, .block_case_name a {
+	color: #000000;
+	text-decoration: underline;
+}
+
+/* 商品名称的超连接鼠标移上的样式 */
+.product_block_small_name a:hover, .product_block_big_name a:hover, .block_case_name a:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+/* 折扣价 */
+.product_block_small_name1 {
+	color: #999999;
+	font-weight: bold;
+}
+
+/* 大的商品块样式 */
+.product_block_big {
+	float: left;
+	margin: 10px 2px 5px 8px;
+	_margin: 10px 5px 5px 4px;
+	width: 178px; /* 图片的大小（111）+ 3 */
+	height: 160px;
+	overflow: hidden;
+}
+
+/* 图片块（这里的width和height必须与页面中的相同） */
+.product_block_big_picture {
+	float: left;
+	width: 174px;
+	height: 133px;
+	padding: 1px;
+	border: 1px solid #E1E1E1;
+	overflow: hidden;
+}
+
+/* 首页底部推荐的名称样式 */
+.product_block_big_name {
+	float: left;
+	width: 175px;
+	padding-top: 4px;
+	font-size: 14px;
+	text-align: center;
+}
+
+/* 首页的底部 */
+#bottom {
+	width: 948px;
+	height: 175px;
+	border: 1px solid #B3C9D6;
+}
+
+/* 友情连接 */
+#link {
+	width: 948px;
+	height: 28px;
+	border: 1px solid #B3C9D6;
+}
+
+/* 友情连接的左边 */
+#link_left {
+	float: left;
+	width: 65px;
+	font-weight: bold;
+	padding: 6px 0 0 15px;
+	_padding: 7px 0 0 15px;
+}
+
+/* 友情连接的右边 */
+#link_right {
+	float: left;
+	padding: 6px 0 0 10px;
+}
+
+/* 注册的顶部1和2公共样式 */
+div#register_top1, div#register_top2 {
+	margin: 0 auto;
+	max-width: 1416px;
+	overflow: hidden;
+	color: #FFFFFF;
+}
+
+/* 注册的顶部1的背景 */
+div#register_top1 {
+	height: 48px;
+	background:url("../images/bg_register_top1.jpg") repeat-x scroll center center #FFFFFF;
+}
+
+/* 注册的顶部2的背景 */
+div#register_top2 {
+	height: 28px;
+	background:url("../images/bg_register_top2.jpg") repeat-x scroll center center #FFFFFF;
+}
+
+/* 注册的顶部1的左边 */
+div#register_top1_left {
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 22px 0 0 30px;
+}
+
+/* 注册的顶部1的右边 */
+div#register_top1_right {
+	float: right;
+	padding: 25px 25px 0 0;
+}
+
+/* 注册的顶部1和2的右边的超连接样式 */
+div#register_top1_right a, div#register_top2_right a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+/* 注册的顶部1和2的右边的超连接样式（鼠标移上的样式） */
+div#register_top1_right a:hover, div#register_top2_right a:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+/* 注册的顶部2的左边 */
+div#register_top2_left {
+	float: left;
+	padding: 7px 0 0 30px;
+}
+
+/* 注册的顶部2的右边 */
+div#register_top2_right {
+	float: right;
+	padding: 7px 25px 0 0;
+}
+
+/* 注册整体样式 */
+div#register {
+	padding: 40px 0 20px 0;
+}
+
+/* 每个注册项 */
+div.register_item {
+	width: 950px;
+	height: 28px;
+	overflow: hidden;
+}
+
+/* 注册提示 */
+div#register_tip ul {
+	width: 950px;
+	height: 28px;
+	color: #FF0000;
+	font-weight: bold;
+	font-size: 13px;
+	text-align: center;
+}
+
+/* 每个表单项的左边 */
+div.register_item_left {
+	float: left;
+	width: 70px;
+	color:  #334D5C;
+	font-weight: bold;
+	padding: 5px 0 0 330px;
+}
+
+/* 每个表单项的中间 */
+div.register_item_middle {
+	float: left;
+	width: 165px;
+	height: 24px;
+}
+
+/* 验证码输入框 */
+div.register_item_middle1 {
+	float: left;
+	width: 85px;
+	height: 24px;
+}
+
+/* 验证码 */
+div.register_item_middle2 {
+	float: left;
+	width: 80px;
+	height: 24px;
+	padding-top: 1px;
+}
+
+#verifyCodeNew, #protocol {
+	text-decoration: underline;
+}
+#verifyCodeNew:hover, #protocol:hover {
+	color: #FF0000;
+}
+
+/* 每个表单项的右边 */
+div.register_item_right {
+	float: left;
+	width: 385px;
+	padding-top: 3px;
+}
+
+/* 每个表单项的右边的错误提示 */
+div.register_item_right ul {
+	width: 250px;
+}
+div.register_item_right1 {
+	float: left;
+	width: 550px;
+	height: 22px;
+}
+
+/* 注册的输入框 */
+.register_input, .register_input1 {
+	width: 155px;
+	height: 17px;
+	font-weight: bold;
+	ime-mode: disabled;
+	padding: 0;
+	margin: 0; /* 这个属性在Firebug中能看到，可设置不起作用 */
+	font-size: 13px;
+}
+
+/* 注册的输入框 */
+.register_input {
+	width: 155px;
+}
+
+/* 注册中的验证码的输入框 */
+.register_input1 {
+	width: 80px;
+}
+
+/* 注册提交的按纽和找回密码提交的按纽共同的属性 */
+.register_submit, .find_submit {
+	width: 81px;
+	height: 28px;
+	border: none;
+	cursor: pointer;
+	blr: expression(this.onFocus = this.blur () );
+}
+
+/* 注册提交的按纽 */
+.register_submit {
+	background: url("../images/bg_register.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+/* 找回密码提交的按纽 */
+.find_submit {
+	background: url("../images/bg_find.jpg") no-repeat scroll center center #FFFFFF;
+}
+
+/* 注册成功之后的页面 */
+div#register_success {
+	color: #324E5C;
+	font-size: 14px;	
+	padding: 110px 30px 110px 160px;
+}
+
+/* 注册成功之后的超连接 */
+div.register_success_a {
+	margin-left: 40px;
+}
+
+/* 去除按纽的虚线框（For Firefox） */
+.btn::-moz-focus-inner, #login::-moz-focus-inner, #search::-moz-focus-inner, .register_submit::-moz-focus-inner {
+	border: none;
+	border-color: transparent !important;
+}
+
+/* 覆盖Freemarker模板的错误提示：去掉 ul 和 li 前面默认的小园点 */
+ul, li {
+	list-style: none;
+}
+
+/* 覆盖Freemarker模板的错误提示：清除子菜单前的缩进值 
+ul {
+	padding: 0;
+	margin: 0;
+	width: 200px;
+}
+*/
+
+/* 横线 */
+#hr {
+	height: 6px;
+	margin: 0 auto;
+	max-width: 1416px;
+	background-color: #31799F;
+	overflow: hidden;
+}
+
+/* 页脚版权信息 */
+#footer {
+	height: 70px;
+	max-width: 1416px;
+	text-align: center;
+	line-height: 21px;
+	padding-top: 5px;
+	margin: 0 auto;
+	background-color: #E0E0E0;
+	overflow: hidden;
+}
+
+/* 输入框样式 */
+.input {
+	width: 90px;
+	font-weight: bold;
+	ime-mode: disabled;
+}
+
+/* 输入框样式 */
+#input1 {
+	width: 180px;
+	height: 17px;
+	border: 0;
+	border-left: 1px solid #7F9DB9;
+	border-top: 1px solid #7F9DB9;
+	border-bottom: 1px solid #7F9DB9;
+	_width: 183px;
+	_height: 18px;
+	_padding-top: 5px;
+}
+
+/* 输入框样式 */
+.input, #input1 {
+	padding: 0;
+	margin: 0; /* 这个属性在Firebug中能看到，可设置不起作用 */
+	font-size: 13px;
+}
+
+/* 首页的商品分类下拉框 */
+select {
+	height: 19px;
+	_height: 17px;
+	_font-size: 11px;
+	padding: 0;
+	margin: 0;
+}
+
+/* 顶部的登录表单，IE6下不加的话，会有上下空白 */
+form {
+	padding: 0;
+	margin: 0;
+}
+
+/* 按纽样式 */
+.btn {
+	cursor: pointer;
+	padding: 1px 3px 1px 5px;
+	height: 21px;
+	_padding: 1px 1px 1px 2px;
+	_height: 20px;
+	font-size: 12px;
+	blr: expression(this.onFocus = this.blur () );
+}
+
+/* 行空隙 */
+.gap_row {
+	clear: both;
+	height: 10px;
+	overflow: hidden;
+}
+
+/* 行空隙 1*/
+.gap_row1 {
+	clear: both;
+	height: 3px;
+	overflow: hidden;
+}
+
+/* 列空隙 */
+.gap_column {
+	float: left;
+	width: 10px;
+	overflow: hidden;
+}
+
+/* 红色粗体 */
+.font_red {
+	color: #FE6000;
+	font-weight: bold;
+}
+
+/* 信息提示样式 */
+.tip {
+	color: #FF0000;
+	font-weight: bold;
+	padding: 20px;
+	text-align: center;
+}
+
+/* 四个角都是圆角(top-left, top-right, bottom-right, bottom-left) */
+#ad, #product_top_scroll, #product_top_placard, #productId_left, #tags li, #productId_right, #limit_placard, #case, #list, #bottom, #link, .product_block_small_picture, .product_block_big_picture, .block_case_picture, div.search_block:hover, div.product_block_small_1:hover {
+	-moz-border-radius: 3px; /* Firefox 1+ */
+	-webkit-border-radius: 3px; /* Chrome/Chromium, Safri 3.0+ */
+	border-radius: 3px; /* IE9, Opera 10.5+ */
+}
+
+/* 上面的两个圆角 */
+#category_title, div#attempt_top, div#tuan_top, #hit_top, #list_top, #list_top_right li.tabin1 {
+	-moz-border-radius: 3px 3px 0 0; /* Firefox 1+ */
+	-webkit-border-radius: 3px 3px 0 0; /* Chrome/Chromium, Safri 3.0+ */
+	border-radius: 3px 3px 0 0; /* IE9, Opera 10.5+ */
+}
+
+/* 下面的两个圆角 */
+#index_category, #hit_bottom, div#attempt_bottom, div#tuan_bottom, .product_hit, #index_house_main, #index_food_main, #index_fun_main, #index_travel_main, #index_celebration_main, #tree_house, #tree_food, #tree_fun, #tree_travel, #tree_celebration, #tree_education, #tree_medical, #tree_gift, #list_bottom, div#search_bottom, div#category_bottom {
+	-moz-border-radius: 0 0 3px 3px; /* Firefox 1+ */
+	-webkit-border-radius: 0 0 3px 3px; /* Chrome/Chromium, Safri 3.0+ */
+	border-radius: 0 0 3px 3px; /* IE9, Opera 10.5+ */
+}
+
+/* 显示打印的样式 */
+#printMessageBox {
+	position: fixed;
+	_position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	margin: -60px 0 0 -155px;
+	width: 310px;
+	height: 120px;
+	font-size: 16px;
+	padding: 10px;
+	color: #222222;
+	font-family: helvetica, arial;
+	opacity: 0;
+	background: url("data:image/gif;base64,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") center 40px no-repeat #FFFFFF;
+	*background: url("../images/print.gif") no-repeat center 40px #FFFFFF;
+	border: 6px solid #555;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	box-shadow: 0px 0px 10px #888;
+	-webkit-box-shadow: 0px 0px 10px #888;
+	-moz-box-shadow: 0px 0px 10px #888
+}
+

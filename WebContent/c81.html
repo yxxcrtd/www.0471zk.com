@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>外语培训 - 青城折扣网</title>
+		<meta name="keywords" content="0471, 折扣" />
+		<meta name="description" content="青城折扣网，打造全蒙最大折扣平台！" />
+		<link rel="icon" href="./images/home.ico" />
+		<link type="text/css" rel="styleSheet" href="./css/style.css" />
+		<script type="text/javascript" src="./js/jquery.js"></script>
+		<script type="text/javascript" src="./js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="./js/jquery.ui.js"></script>
+		<script type="text/javascript" src="./js/jquery.jPages.js"></script>
+		<script type="text/javascript" src="./js/public.js"></script>
+		<script type="text/javascript" src="./js/product.js"></script>
+	</head>
+	
+	<body>
+<div id="top">
+		<div id="top_left"></div>
+	
+	<div id="top_middle">
+		<div id="top_middel_hot_search"></div>
+		<div id="top_middel_search">
+			<strong>商家搜索：</strong><input id="input1" value="" onmouseover="this.select();" maxlength="10" /><select id="search_select">
+				<option value="" selected>商品分类</option>
+				<option value="house" >家居建材</option>
+				<option value="food" >餐饮美食</option>
+				<option value="fun" >休闲娱乐</option>
+				<option value="travel" >出行旅游</option>
+				<option value="celebration" >庆典礼仪</option>
+				<option value="education" >教育培训</option>
+				<option value="medical" >寻医问诊</option>
+				<option value="gift" >烟酒礼品</option>
+			</select>
+			<input id="search" type="button" value="" />
+		</div>
+		<div id="login_success"></div>
+		<div id="top_middel_login">
+			<form action="login.action">
+				<strong>会员登录：</strong>用户名&nbsp;<input class="input" id="username" name="user.username" maxlength="20" />&nbsp;
+				密码&nbsp;<input type="password" class="input" id="password" name="user.password" />&nbsp;<input id="login" type="submit" value="" />&nbsp;
+				[<a href="register.action"><strong>会员注册</strong></a>]
+				[<a href="find.action">忘记密码</a>]
+				<input type="hidden" name="returnUrl" value="education.html" />
+			</form>
+		</div>
+	</div>
+	
+	<div id="top_right"></div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+	var kNode = $("#input1");
+	$("#search").bind("click", function(e) {
+		var kNodeValue = $.trim(kNode.val());
+		if ("" == kNodeValue) {
+			alert("请输入检索关键字！");
+			kNode.focus();
+			return false;
+		}
+		var queryObj = $("#search_select option:selected").val();
+		window.location.href="/product.action?cmd=search&obj=" + queryObj + "&k=" + kNodeValue;
+	});
+});
+</script>
+
+<div id="menu">
+	<div id="menu_main">
+		<a class="a" href="/">
+			<span class="menu_a">首&nbsp;&nbsp;页</span>
+		</a>
+		<span class="menu_separator"></span>
+		<a class="a" href="house.html">
+			<span class="menu_a">家居建材</span>
+		</a>
+		<span class="menu_separator"></span>
+		<a class="a" href="food.html">
+			<span class="menu_a">餐饮美食</span>
+		</a>
+		<span class="menu_separator"></span>
+		<a class="a" href="fun.html">
+			<span class="menu_a">休闲娱乐</span>
+		</a>
+		<span class="menu_separator"></span>
+		<a class="a" href="travel.html">
+			<span class="menu_a">出行旅游</span>
+		</a>
+		<span class="menu_separator"></span>
+		<a class="a" href="celebration.html">
+			<span class="menu_a">庆典礼仪</span>
+		</a>
+		<span class="menu_separator"></span>
+		<a class="a current" href="education.html">
+			<span class="menu_a">教育培训</span>
+		</a>
+		<span class="menu_separator"></span>
+		<a class="a" href="medical.html">
+			<span class="menu_a">寻医问诊</span>
+		</a>
+		<span class="menu_separator"></span>
+		<a class="a" href="gift.html">
+			<span class="menu_a">烟酒礼品</span>
+		</a>
+	</div>
+</div>
+
+<div id="recommend"></div>		<div id="container">
+			<div id="ad"></div>
+			<div class="gap_row"></div>
+			<div id="productId_left">
+<div id="category_title">
+	<div id="category_title_inner"></div>
+</div>
+
+<div id="index_category">
+	<div class="index_tree_title">家居建材</div>
+	<div id="index_tree_house">
+		<script language="javascript">$("#index_tree_house").load("index_tree_house.html");</script>
+	</div>
+	
+	<div class="index_tree_title">餐饮美食</div>
+	<div id="index_tree_food">
+		<script language="javascript">$("#index_tree_food").load("index_tree_food.html");</script>
+	</div>
+	
+	<div class="index_tree_title">休闲娱乐</div>
+	<div id="index_tree_fun">
+		<script language="javascript">$("#index_tree_fun").load("index_tree_fun.html");</script>
+	</div>
+	
+	<div class="index_tree_title">出行旅游</div>
+	<div id="index_tree_travel">
+		<script language="javascript">$("#index_tree_travel").load("index_tree_travel.html");</script>
+	</div>
+	
+	<div class="index_tree_title">庆典礼仪</div>
+	<div id="index_tree_celebration">
+		<script language="javascript">$("#index_tree_celebration").load("index_tree_celebration.html");</script>
+	</div>
+	
+	<div class="index_tree_title">教育培训</div>
+	<div id="index_tree_education">
+		<script language="javascript">$("#index_tree_education").load("index_tree_education.html");</script>
+	</div>
+	
+	<div class="index_tree_title">寻医问诊</div>
+	<div id="index_tree_medical">
+		<script language="javascript">$("#index_tree_medical").load("index_tree_medical.html");</script>
+	</div>
+	
+	<div class="index_tree_title">烟酒礼品</div>
+	<div id="index_tree_gift">
+		<script language="javascript">$("#index_tree_gift").load("index_tree_gift.html");</script>
+	</div>
+</div>			</div>
+			<div class="gap_column"></div>
+			<div id="search_right">
+<div id="list">
+		<div id="list_top">
+		<div id="list_top_picture">
+			<img src="./images/bg_product_case_front.jpg" />
+		</div>
+		<div id="search_top_left">外语培训：（当前分类下共有：<font class="font_red">1</font>&nbsp;条信息）</div>
+	</div>
+	
+	<div id="category_bottom">
+		<div class="gap_row"></div>
+		<div id="itemContainer">
+					<li>
+						<div class="search_block">
+							<div class="search_block_picture">
+								<a href="28.html" target="_blank">
+									<img src="./upload/case_20120513091641671.jpg" width="150" height="110" title="教育培训1" />
+								</a>
+							</div>
+							<div class="search_block_name">
+								<a href="28.html" title="教育培训1" target="_blank">
+										教育培训1
+								</a>
+							</div>
+							<div class="search_block_name1">
+								市场价：12000&nbsp;元
+							</div>
+							<div class="search_block_name">
+								折扣价：<span class="font_red">10000&nbsp;元</span>
+							</div>
+						</div>
+					</li>
+		</div>
+		<div class="holder"></div>
+	</div>
+</div>
+
+<script type="text/javascript" language="javascript">
+<!--
+	$("div.holder").jPages({
+		containerID : "itemContainer",
+        perPage		: 16
+	});
+//-->
+</script>
+			</div>
+			<div class="gap_row"></div>
+			<div id="index_bottom"></div>
+			<div class="gap_row"></div>
+			<div id="link"></div>
+			<div class="gap_row"></div>
+		</div>
+<div id="hr"></div>
+
+<div class="gap_row1"></div>
+
+<div id="footer">
+	<a href="about.html">关于我们</a>
+	&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="zhaopin.html">人才招聘</a>
+	&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="constract.html">联系我们</a>
+	&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="law.html">法律声明</a>
+	<br />
+	Copyright &copy; 2012 All Rights Reserved.&nbsp;&nbsp;京ICP备06057276号&nbsp;&nbsp;京ICP证080365号
+	<br />
+	呼和浩特市易聆文化传媒有限责任公司&nbsp;&nbsp;&nbsp;&nbsp;服务热线：400 733 9988
+</div>	</body>
+</html>

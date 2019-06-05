@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<!-- 密码 -->
+	<field name="user.password">
+		<field-validator type="requiredstring" short-circuit="true">
+			<param name="trim">true</param>
+			<message key="system.login.password.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">5</param>
+			<param name="maxLength">20</param>
+			<message key="system.register.password.length" />
+		</field-validator>
+	</field>
+	
+	<!-- 确认密码 -->
+	<field name="user.repassword">
+		<field-validator type="requiredstring" short-circuit="true">
+			<param name="trim">true</param>
+			<message key="system.register.repassword.required" />
+		</field-validator>
+		<field-validator type="stringlength" short-circuit="true"><!-- 如果下面还有验证条件，则要加上：短路验证 -->
+			<param name="minLength">5</param>
+			<param name="maxLength">20</param>
+			<message key="system.register.password.length" />
+		</field-validator>
+		<field-validator type="fieldexpression">
+			<param name="expression">user.password==user.repassword</param>
+			<message key="system.register.validation.password.error" />
+		</field-validator>
+	</field>
+</validators>

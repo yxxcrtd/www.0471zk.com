@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.pub.pojos.Tuan" table="&quot;T_Tuan&quot;">
+		<id name="tuanId" type="int">
+			<column name="&quot;TuanId&quot;" />
+			<generator class="sequence">
+				<param name="sequence">&quot;T_Tuan_TuanId_seq&quot;</param>
+			</generator>
+		</id>
+		<property name="picture" type="java.lang.String">
+			<column name="&quot;TuanPicture&quot;" length="22" not-null="true" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="&quot;TuanName&quot;" length="50" not-null="true" />
+		</property>
+		<property name="price" type="java.lang.Double">
+			<column name="&quot;TuanPrice&quot;" precision="9" scale="2" />
+		</property>
+		<property name="offPrice" type="java.lang.Double">
+			<column name="&quot;TuanOffPrice&quot;" precision="9" scale="2" />
+		</property>
+		<property name="discount" type="java.lang.Double">
+			<column name="&quot;TuanDiscount&quot;" precision="2" scale="1" />
+		</property>
+		<property name="url" type="java.lang.String">
+			<column name="&quot;TuanUrl&quot;" length="50" not-null="true" />
+		</property>
+		<property name="operateTime" type="java.util.Date">
+			<column name="&quot;TuanOperateTime&quot;" length="23" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

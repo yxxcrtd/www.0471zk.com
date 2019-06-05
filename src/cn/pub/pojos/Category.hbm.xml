@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.pub.pojos.Category" table="&quot;T_Category&quot;">
+		<id name="categoryId" type="int">
+			<column name="&quot;CategoryId&quot;" />
+			<generator class="sequence">
+				<param name="sequence">&quot;T_Category_CategoryId_seq&quot;</param>
+			</generator>
+		</id>
+		<property name="type" type="java.lang.String">
+			<column name="&quot;CategoryType&quot;" length="15" not-null="true" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="&quot;CategoryName&quot;" length="50" not-null="true" />
+		</property>
+		<property name="parentId" type="java.lang.Integer">
+			<column name="&quot;CategoryParentId&quot;" />
+		</property>
+		<property name="parentPath" type="java.lang.String">
+			<column name="&quot;CategoryParentPath&quot;" length="20" not-null="true" />
+		</property>
+		<property name="number" type="java.lang.Integer">
+			<column name="&quot;CategoryNumber&quot;" not-null="true" />
+		</property>
+		<property name="orderby" type="java.lang.Integer">
+			<column name="&quot;CategoryOrder&quot;" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>
